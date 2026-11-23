@@ -7,14 +7,14 @@
     random: ['#f2eddf','#567250','#fffaf0','#8b7655'], lime: ['#e5ef9a','#465b27','#fcffea','#59682d'], blue: ['#c9e4f6','#315c80','#f5fbff','#476d8d'], lavender: ['#e4dcf5','#654e8b','#fcf9ff','#725e91'], peach: ['#f6d6c0','#9b583c','#fff9f4','#a66950'], cream: ['#f5ead2','#725d39','#fffbf2','#87734e'], black: ['#242421','#eee4c8','#f7f3eb','#f2d68e'], mint: ['#c9e8d8','#347462','#f7fffb','#4d8774'], pink: ['#f6d5df','#9b4f69','#fff8fa','#a85b76']
   };
   const names = { random: '🎲 랜덤', lime: '라임', blue: '블루', lavender: '라벤더', peach: '살구', cream: '크림', black: '블랙', mint: '민트', pink: '핑크' };
-  let toastTimer, downloadFile=null;
+  let toastTimer, downloadFile=null, forceDirectDownload=false;
   function toast(msg) { const el=$('#toast'); el.textContent=msg; el.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.add('hidden'),5000); }
   function canShareVideoFile(file){if(!file||typeof navigator.share!=='function'||typeof navigator.canShare!=='function')return false;try{return navigator.canShare({files:[file]})}catch{return false}}
   function isKakaoBrowser(){return /KAKAOTALK/i.test(navigator.userAgent)}
   function isAndroid(){return /Android/i.test(navigator.userAgent)}
-  function startDirectDownload(){const link=$('#downloadLink');if(!link.href){toast('먼저 영상을 완성해 주세요.');return}link.click();if(isAndroid())toast('다운로드를 시작했어요. 완료 알림이나 다운로드 폴더에서 영상을 확인해 주세요.')}
+  function startDirectDownload(){const link=$('#downloadLink');if(!link.href){toast('먼저 영상을 완성해 주세요.');return}forceDirectDownload=true;try{link.click()}finally{forceDirectDownload=false}if(isAndroid())toast('다운로드를 시작했어요. 완료 알림이나 다운로드 폴더에서 영상을 확인해 주세요.')}
   function openVideoShare(file){if(isKakaoBrowser()){toast('카카오톡 안 브라우저에서는 저장이 제한돼요. Chrome에서 페이지를 열어 다시 저장해 주세요.');return}if(isAndroid()){startDirectDownload();return}if(!canShareVideoFile(file)){startDirectDownload();return}navigator.share({files:[file],title:`${$('#petName').value.trim()} 홍보 영상`}).catch(error=>{if(error.name!=='AbortError')startDirectDownload()})}
-  $('#downloadLink').addEventListener('click',event=>{if(!downloadFile)return;if(isKakaoBrowser()){event.preventDefault();toast('카카오톡 안 브라우저에서는 저장이 제한돼요. Chrome에서 페이지를 열어 다시 저장해 주세요.');return}if(isAndroid())return;if(canShareVideoFile(downloadFile)){event.preventDefault();openVideoShare(downloadFile)}});
+  $('#downloadLink').addEventListener('click',event=>{if(forceDirectDownload||!downloadFile)return;if(isKakaoBrowser()){event.preventDefault();toast('카카오톡 안 브라우저에서는 저장이 제한돼요. Chrome에서 페이지를 열어 다시 저장해 주세요.');return}if(isAndroid())return;if(canShareVideoFile(downloadFile)){event.preventDefault();openVideoShare(downloadFile)}});
   function go(page) {
     state.page=page; $$('.screen').forEach((e,i)=>e.classList.toggle('active',i===page));
     $('#stepLabel').textContent=['처음 화면','사진·영상','아이 정보','영상 디자인','영상 만들기'][page];
