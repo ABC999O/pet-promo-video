@@ -21,7 +21,7 @@
 
   <main>
     <section class="screen active" id="screen0">
-      <div class="hero"><div class="eyebrow">A little story, a new home</div><h1>사진과 정보만 넣으면<br>홍보 영상이 완성돼요</h1><p class="lead" style="margin:0">소중한 아이의 이야기를 담아<br>최대 3분 영상으로 소개해 보세요.</p></div>
+      <div class="hero"><h1>사진과 정보만 넣으면<br>홍보 영상이 완성돼요</h1><p class="lead" style="margin:0">소중한 아이의 이야기를 담아<br>최대 3분 영상으로 소개해 보세요.</p></div>
       <div class="categories">
         <button class="category" data-category="adoption"><span class="icon">🏡</span><span><strong>입양 홍보</strong><small>새 가족을 찾는 아이를 소개해요</small></span><span class="arrow">›</span></button>
         <button class="category" data-category="foster"><span class="icon">🤲</span><span><strong>임시 보호 홍보</strong><small>따뜻한 임시 보호처를 찾아요</small></span><span class="arrow">›</span></button>
@@ -43,19 +43,18 @@
         <div class="two"><div class="field"><label>품종</label><input id="breed" placeholder="예: 믹스견" maxlength="24" /></div><div class="field"><label>나이</label><input id="age" placeholder="예: 2살 추정" maxlength="18" /></div></div>
         <div class="two"><div class="field"><label>성별</label><select id="sex"><option value="">선택 안 함</option><option>여아</option><option>남아</option></select></div><div class="field"><label>체중</label><input id="weight" placeholder="예: 5kg" maxlength="12" /></div></div>
         <div class="field"><label>중성화</label><div class="seg-row"><label class="choice"><input type="radio" name="neutered" value="중성화 완료"><span>완료</span></label><label class="choice"><input type="radio" name="neutered" value="중성화 예정"><span>예정</span></label><label class="choice"><input type="radio" name="neutered" value="미중성화"><span>미중성화</span></label><label class="choice"><input type="radio" name="neutered" value=""><span>미입력</span></label></div></div>
-        <div class="field"><label>지역</label><input id="location" placeholder="예: 서울 마포구" maxlength="30" /></div><div class="field hidden" id="fosterPeriodWrap"><label>임시 보호 기간</label><input id="fosterPeriod" placeholder="예: 6월 말까지" maxlength="24" /></div>
+        <div class="field"><label>지역</label><input id="location" placeholder="예: 서울 마포구 · OOQ보호소" maxlength="30" /></div><div class="field hidden" id="fosterPeriodWrap"><label>임시 보호 기간</label><input id="fosterPeriod" placeholder="예: 6월 말까지" maxlength="24" /></div>
       </div>
-      <div class="panel"><div class="panel-title">아이의 이야기</div><div class="field"><label>비고</label><textarea id="notes" maxlength="180" placeholder="성격, 좋아하는 것, 건강 상태 등을 적어주세요."></textarea></div><div class="field"><label>문의 방법</label><textarea id="contact" maxlength="100" placeholder="예: 입양 문의는 카카오톡 오픈채팅으로 주세요."></textarea></div></div>
+      <div class="panel"><div class="panel-title">아이의 이야기</div><div class="field"><label>비고</label><textarea id="notes" maxlength="180" placeholder="성격, 좋아하는 것, 건강 상태 등을 적어주세요."></textarea></div><div class="field"><label>문의 방법</label><textarea id="contact" maxlength="100" placeholder="예: 010-1234-5678 · @instagram_id · 카카오톡 오픈채팅"></textarea></div></div>
       <div class="sticky-spacer"></div>
     </section>
 
     <section class="screen" id="screen3">
       <div class="eyebrow">STEP 03 · DESIGN</div><h1>영상 분위기를<br>정해볼까요?</h1><p class="lead">포스터와 정보 카드의 글씨체, 색을 골라주세요.</p>
       <div class="panel settings-summary"><div class="field"><label>포스터 문구 <small class="note">(선택 · 30자 이내)</small></label><input id="posterText" maxlength="30" placeholder="예: 평생 가족을 기다려요" /></div>
-        <div class="field"><label>글씨체</label><select id="fontChoice" class="inline-select"><option value="system-ui,-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif">고딕 · 깔끔한 기본 글씨</option><option value="system-ui,-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif" data-weight="900">굵은 타이틀 · 또렷하고 힘 있게</option><option value="'Arial Rounded MT Bold','Noto Sans KR',system-ui,sans-serif">둥근체 · 부드럽고 친근하게</option><option value="'Do Hyeon','Apple SD Gothic Neo','Noto Sans KR',sans-serif">도현체 · 개성 있는 제목</option><option value="'Nanum Pen Script','Comic Sans MS',cursive">손글씨 · 다정한 느낌</option><option value="'Noto Serif KR','AppleMyungjo',serif">명조 · 차분하고 따뜻하게</option></select><div class="font-preview" id="fontPreview">우리 강아지를 소개합니다</div></div>
+        <div class="field"><label>글씨체</label><select id="fontChoice" class="inline-select"><option value="sans-serif" data-weight="600">고딕 · 깔끔한 기본 글씨</option><option value="sans-serif" data-weight="900">굵은 고딕 · 또렷하고 힘 있게</option><option value="serif" data-weight="600">명조 · 차분하고 따뜻하게</option></select><div class="font-preview" id="fontPreview">우리 강아지를 소개합니다</div></div>
         <div class="field"><label>배경 분위기</label><div class="palette" id="palette"></div></div>
       </div>
-      <div class="panel"><div class="panel-title">얼굴 위치 <small class="note">(선택)</small></div><div class="note" style="margin-bottom:10px">첫 사진에서 아이의 얼굴을 눌러주세요. 얼굴 중심으로 포스터 사진이 배치됩니다.</div><div class="face-frame" id="faceFrame"><span id="faceHint">사진을 먼저 올려주세요</span><img id="faceImage" alt="포스터 얼굴 위치 선택"/><i class="face-dot" id="faceDot"></i></div><button class="btn ghost" id="clearFace" style="padding-left:0">위치 지우기</button></div>
       <div class="sticky-spacer"></div>
     </section>
 
