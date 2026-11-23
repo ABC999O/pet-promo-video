@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fffaf2" />
+  <meta name="description" content="사진과 정보만 넣으면 유기동물 홍보 영상을 만드는 모바일 앱" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>우리 강아지를 소개합니다</title>
+  <style>
+    :root{--ink:#282722;--muted:#77756d;--paper:#fffaf2;--white:#fff;--line:#ece7dd;--accent:#507a5d;--accent-dark:#345740;--soft:#edf3ea;--radius:24px;--shadow:0 14px 38px #4b382012}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.app{max-width:760px;margin:auto;min-height:100dvh;padding:0 18px 110px}.topbar{height:64px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:14px;font-weight:800;letter-spacing:-.03em}.brand span{color:var(--accent)}.step-label{font-size:12px;color:var(--muted);font-weight:700}.progress{height:4px;background:#e9e5dc;border-radius:9px;overflow:hidden}.progress i{display:block;height:100%;background:var(--accent);transition:width .25s}.screen{display:none;padding:28px 0 18px}.screen.active{display:block;animation:show .25s ease}@keyframes show{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}h1{font-size:clamp(28px,7vw,42px);letter-spacing:-.055em;line-height:1.16;margin:10px 0 12px}h2{font-size:22px;letter-spacing:-.04em;margin:0 0 8px}.lead{color:var(--muted);line-height:1.65;margin:0 0 26px}.hero{background:linear-gradient(145deg,#f0f4e9,#fff1dc);border-radius:30px;padding:28px 24px;position:relative;overflow:hidden}.hero:after{content:'🐶';position:absolute;right:15px;bottom:-12px;font-size:98px;opacity:.22;transform:rotate(-12deg)}.hero>*{position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:.11em;font-weight:850;color:var(--accent);text-transform:uppercase}.categories{display:grid;gap:12px;margin:22px 0}.category{width:100%;border:1px solid var(--line);background:white;border-radius:22px;padding:20px;text-align:left;display:flex;align-items:center;gap:15px;box-shadow:var(--shadow);color:inherit}.category .icon{width:50px;height:50px;display:grid;place-items:center;border-radius:17px;background:var(--soft);font-size:25px}.category strong{display:block;font-size:17px;letter-spacing:-.035em;margin-bottom:4px}.category small{color:var(--muted)}.category .arrow{margin-left:auto;font-size:22px;color:var(--accent)}.note{color:var(--muted);font-size:12px;line-height:1.6}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 14px}.segmented{display:flex;background:#f0ede5;border-radius:14px;padding:4px;gap:2px}.segmented button{border:0;background:transparent;padding:9px 12px;border-radius:11px;color:var(--muted);font-weight:750;font-size:12px}.segmented button.selected{background:#fff;color:var(--ink);box-shadow:0 2px 7px #0000000c}.upload{border:1.5px dashed #c9c4b8;background:#fff;border-radius:24px;padding:35px 18px;text-align:center;display:block;cursor:pointer}.upload .upicon{font-size:32px;margin-bottom:10px}.upload strong{display:block;font-size:15px}.upload small{display:block;color:var(--muted);margin-top:6px}.upload input{display:none}.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.media-item{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;background:#e8e4db}.media-item img,.media-item video{width:100%;height:100%;object-fit:cover}.media-item .num{position:absolute;left:7px;top:7px;background:#0009;color:#fff;border-radius:20px;padding:3px 7px;font-size:10px;font-weight:800}.media-item .remove{position:absolute;right:5px;top:5px;border:0;background:#fffffff0;color:#333;border-radius:50%;width:25px;height:25px;font-weight:900}.media-item .video-tag{position:absolute;bottom:6px;left:6px;background:#0009;color:white;padding:3px 6px;border-radius:7px;font-size:10px}.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;margin:12px 0;box-shadow:0 4px 20px #51412a08}.panel-title{font-size:14px;font-weight:850;margin-bottom:14px}.field{margin:14px 0}.field label,.label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.field input,.field select,.field textarea,.text-input{width:100%;border:1px solid #e5e1d8;border-radius:13px;background:#fff;padding:13px 14px;outline:none;color:var(--ink)}.field textarea{resize:vertical;min-height:90px}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8ca58c;box-shadow:0 0 0 3px #507a5d18}.required{color:#d37a4f}.two{display:grid;grid-template-columns:1fr 1fr;gap:11px}.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.choice{position:relative}.choice input{position:absolute;opacity:0}.choice span{display:flex;justify-content:center;align-items:center;min-height:45px;border:1px solid var(--line);background:#fff;border-radius:13px;font-size:12px;font-weight:750;text-align:center;padding:8px}.choice input:checked+span{border-color:var(--accent);background:var(--soft);color:var(--accent-dark)}.seg-row{display:flex;gap:8px}.seg-row .choice{flex:1}.seg-row .choice span{min-height:42px}.inline-select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink)}.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.swatch{border:1px solid var(--line);background:white;border-radius:13px;display:flex;align-items:center;gap:7px;padding:8px 7px;font-size:11px;font-weight:750;color:#504f49}.dot{width:18px;height:18px;border-radius:50%;flex:none;border:1px solid #00000012}.palette .choice span{justify-content:flex-start;min-height:38px;padding:7px}.palette .choice input:checked+span{outline:2px solid var(--accent);outline-offset:1px}.face-frame{position:relative;border-radius:18px;overflow:hidden;background:#eee;min-height:150px;display:grid;place-items:center;color:var(--muted);font-size:12px}.face-frame img{width:100%;max-height:360px;object-fit:contain;display:none}.face-dot{position:absolute;width:34px;height:34px;border:3px solid #ffd63e;border-radius:50%;box-shadow:0 0 0 100vmax #00000008;transform:translate(-50%,-50%);display:none;pointer-events:none}.footer{position:fixed;z-index:5;bottom:0;left:0;right:0;padding:12px max(18px,calc((100vw - 724px)/2)) calc(12px + env(safe-area-inset-bottom));background:linear-gradient(0deg,var(--paper) 75%,#fffaf200);display:flex;gap:10px}.btn{border:0;border-radius:16px;padding:15px 18px;font-weight:850;letter-spacing:-.025em}.btn.primary{background:var(--accent);color:#fff;flex:1}.btn.primary:active{background:var(--accent-dark)}.btn.secondary{background:#eeeae2;color:#4d4b44}.btn.ghost{background:transparent;color:var(--muted)}.sticky-spacer{height:75px}.poster-copy{max-width:420px}.settings-summary{display:grid;gap:13px}.font-preview{font-size:20px;margin-top:7px}.preview-stage{background:#171715;border-radius:25px;overflow:hidden;aspect-ratio:9/16;max-height:66vh;margin:16px auto;position:relative}.preview-stage canvas{width:100%;height:100%;object-fit:contain}.progress-wrap{background:#eee;border-radius:20px;height:8px;overflow:hidden;margin:14px 0}.progress-wrap i{height:100%;display:block;width:0;background:#6f946d;transition:width .2s}.status{font-size:13px;color:var(--muted);text-align:center}.result{background:white;border-radius:22px;padding:17px;margin:14px 0;text-align:center}.result a{display:block;margin-top:12px;color:var(--accent);font-weight:800}.hidden{display:none!important}.toast{position:fixed;z-index:9;bottom:95px;left:50%;transform:translateX(-50%);background:#292923;color:#fff;padding:11px 17px;border-radius:30px;font-size:12px;box-shadow:var(--shadow);max-width:calc(100vw - 32px);text-align:center}.file-count{font-size:11px;color:var(--muted)}
+    @media(min-width:600px){.app{padding-left:28px;padding-right:28px}.screen{padding-top:38px}.media-grid{grid-template-columns:repeat(4,1fr)}.hero{padding:38px}.panel{padding:22px}.palette{grid-template-columns:repeat(8,1fr)}}
+    @media(max-width:390px){.palette{grid-template-columns:repeat(2,1fr)}.two{gap:8px}.segmented button{padding-inline:9px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar"><div class="brand">🐾 <span>우리 강아지를</span> 소개합니다</div><div class="step-label" id="stepLabel">처음 화면</div></header>
+  <div class="progress"><i id="progressBar" style="width:0%"></i></div>
+
+  <main>
+    <section class="screen active" id="screen0">
+      <div class="hero"><div class="eyebrow">A little story, a new home</div><h1>사진과 정보만 넣으면<br>홍보 영상이 완성돼요</h1><p class="lead" style="margin:0">소중한 아이의 이야기를 담아<br>최대 3분 영상으로 소개해 보세요.</p></div>
+      <div class="categories">
+        <button class="category" data-category="adoption"><span class="icon">🏡</span><span><strong>입양 홍보</strong><small>새 가족을 찾는 아이를 소개해요</small></span><span class="arrow">›</span></button>
+        <button class="category" data-category="foster"><span class="icon">🤲</span><span><strong>임시 보호 홍보</strong><small>따뜻한 임시 보호처를 찾아요</small></span><span class="arrow">›</span></button>
+      </div><p class="note">완성한 영상은 휴대폰에 저장해 SNS에 공유할 수 있어요. 사진과 정보는 이 기기에서 영상으로 만들어집니다.</p>
+    </section>
+
+    <section class="screen" id="screen1">
+      <div class="eyebrow">STEP 01 · MEDIA</div><h1>아이의 모습을<br>올려주세요</h1><p class="lead">사진과 영상을 섞어서 최대 20개까지 올릴 수 있어요. 처음 사진이 영상의 포스터가 됩니다.</p>
+      <div class="toolbar"><strong>영상 방향</strong><div class="segmented"><button class="selected" data-ratio="portrait">세로 9:16</button><button data-ratio="landscape">가로 16:9</button></div></div>
+      <label class="upload" for="mediaInput"><div class="upicon">＋</div><strong>사진 또는 영상 선택</strong><small>JPG · PNG · HEIC · MP4 · MOV · 최대 20개</small><input id="mediaInput" type="file" accept="image/*,video/*" multiple /></label>
+      <div class="toolbar"><strong>올린 파일</strong><span class="file-count" id="fileCount">0 / 20</span></div><div class="media-grid" id="mediaGrid"></div>
+      <div class="sticky-spacer"></div>
+    </section>
+
+    <section class="screen" id="screen2">
+      <div class="eyebrow">STEP 02 · ABOUT</div><h1>아이를 소개해요</h1><p class="lead">이름만 입력해도 돼요. 작성한 내용은 영상 마지막 정보 카드에 표시됩니다.</p>
+      <div class="panel"><div class="panel-title">기본 정보</div>
+        <div class="field"><label>이름 <span class="required">*</span></label><input id="petName" maxlength="24" placeholder="예: 초코" /></div>
+        <div class="two"><div class="field"><label>품종</label><input id="breed" placeholder="예: 믹스견" maxlength="24" /></div><div class="field"><label>나이</label><input id="age" placeholder="예: 2살 추정" maxlength="18" /></div></div>
+        <div class="two"><div class="field"><label>성별</label><select id="sex"><option value="">선택 안 함</option><option>여아</option><option>남아</option></select></div><div class="field"><label>체중</label><input id="weight" placeholder="예: 5kg" maxlength="12" /></div></div>
+        <div class="field"><label>중성화</label><div class="seg-row"><label class="choice"><input type="radio" name="neutered" value="중성화 완료"><span>완료</span></label><label class="choice"><input type="radio" name="neutered" value="중성화 예정"><span>예정</span></label><label class="choice"><input type="radio" name="neutered" value="미중성화"><span>미중성화</span></label><label class="choice"><input type="radio" name="neutered" value=""><span>미입력</span></label></div></div>
+        <div class="field"><label>지역</label><input id="location" placeholder="예: 서울 마포구" maxlength="30" /></div><div class="field hidden" id="fosterPeriodWrap"><label>임시 보호 기간</label><input id="fosterPeriod" placeholder="예: 6월 말까지" maxlength="24" /></div>
+      </div>
+      <div class="panel"><div class="panel-title">아이의 이야기</div><div class="field"><label>비고</label><textarea id="notes" maxlength="180" placeholder="성격, 좋아하는 것, 건강 상태 등을 적어주세요."></textarea></div><div class="field"><label>문의 방법</label><textarea id="contact" maxlength="100" placeholder="예: 입양 문의는 카카오톡 오픈채팅으로 주세요."></textarea></div></div>
+      <div class="sticky-spacer"></div>
+    </section>
+
+    <section class="screen" id="screen3">
+      <div class="eyebrow">STEP 03 · DESIGN</div><h1>영상 분위기를<br>정해볼까요?</h1><p class="lead">포스터와 정보 카드의 글씨체, 색을 골라주세요.</p>
+      <div class="panel settings-summary"><div class="field"><label>포스터 문구 <small class="note">(선택 · 30자 이내)</small></label><input id="posterText" maxlength="30" placeholder="예: 평생 가족을 기다려요" /></div>
+        <div class="field"><label>글씨체</label><select id="fontChoice" class="inline-select"><option value="system-ui,-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif">고딕 · 깔끔한 기본 글씨</option><option value="system-ui,-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif" data-weight="900">굵은 타이틀 · 또렷하고 힘 있게</option><option value="'Arial Rounded MT Bold','Noto Sans KR',system-ui,sans-serif">둥근체 · 부드럽고 친근하게</option><option value="'Do Hyeon','Apple SD Gothic Neo','Noto Sans KR',sans-serif">도현체 · 개성 있는 제목</option><option value="'Nanum Pen Script','Comic Sans MS',cursive">손글씨 · 다정한 느낌</option><option value="'Noto Serif KR','AppleMyungjo',serif">명조 · 차분하고 따뜻하게</option></select><div class="font-preview" id="fontPreview">우리 강아지를 소개합니다</div></div>
+        <div class="field"><label>배경 분위기</label><div class="palette" id="palette"></div></div>
+      </div>
+      <div class="panel"><div class="panel-title">얼굴 위치 <small class="note">(선택)</small></div><div class="note" style="margin-bottom:10px">첫 사진에서 아이의 얼굴을 눌러주세요. 얼굴 중심으로 포스터 사진이 배치됩니다.</div><div class="face-frame" id="faceFrame"><span id="faceHint">사진을 먼저 올려주세요</span><img id="faceImage" alt="포스터 얼굴 위치 선택"/><i class="face-dot" id="faceDot"></i></div><button class="btn ghost" id="clearFace" style="padding-left:0">위치 지우기</button></div>
+      <div class="sticky-spacer"></div>
+    </section>
+
+    <section class="screen" id="screen4">
+      <div class="eyebrow">YOUR VIDEO</div><h1>아이의 이야기를<br>영상에 담는 중</h1><p class="lead">휴대폰 화면을 켜 둔 채 잠시 기다려 주세요.</p>
+      <div class="preview-stage"><canvas id="renderCanvas" width="1080" height="1920"></canvas></div>
+      <div class="progress-wrap"><i id="renderProgress"></i></div><div class="status" id="renderStatus">준비 중…</div>
+      <div class="result hidden" id="resultBox"><strong>영상이 완성됐어요! 🎉</strong><div class="note">휴대폰 공유 메뉴를 열어 사진 앱에 저장하거나 파일로 내려받을 수 있어요.</div><button class="btn primary" id="shareVideo" style="width:100%;margin-top:13px">저장 및 공유하기</button><a id="downloadLink" href="#" download>파일로 저장</a><div class="note" id="formatNotice" style="margin-top:9px"></div></div>
+      <div class="sticky-spacer"></div>
+    </section>
+  </main>
+</div>
+<nav class="footer" id="footer"><button class="btn secondary hidden" id="backBtn">이전</button><button class="btn primary hidden" id="nextBtn">다음</button></nav>
+<div class="toast hidden" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
